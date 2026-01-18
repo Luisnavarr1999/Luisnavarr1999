@@ -1,4 +1,4 @@
-# Hi, I'm Lucho 👋
+# Hi, I'm Luis 🦔
 
 🎓 Estudiante de Ingeniería en Informática (INACAP, Chile)  
 💻 Formación técnica como Analista Programador
@@ -9,7 +9,8 @@
 
 - 👨‍🎓 Estudiante de Ingeniería en Informática, egresado de Analista Programador.
 - 🧠 Perfil analítico, orientado al detalle y a la planificación.
-- 🌱 Aprendiendo y profundizando en Python, Django, JavaScript y Sql.
+- 🌱 Aprendiendo y profundizando en Python, Django, JavaScript y SQL.
+- 🎯 Mi objetivo es seguir practicando y especializándome.
 
 ---
 
@@ -28,8 +29,6 @@
 ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-
 ---
 
 ## Databases
@@ -43,6 +42,13 @@
 
 ![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)
 ![PythonAnywhere](https://img.shields.io/badge/PythonAnywhere-1D9BF0?style=for-the-badge)
+
+---
+
+## Others
+
+![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 
 ---
 
