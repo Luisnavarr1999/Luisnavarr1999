@@ -54,7 +54,7 @@ document.querySelector('#app').innerHTML = `
     </section>
 
     <footer class="card">
-      <p>📫 Contacto: </p>
+      <p>📫 Contacto: luisnavarr1999@gmail.com </p>
     </footer>
   </main>
 `

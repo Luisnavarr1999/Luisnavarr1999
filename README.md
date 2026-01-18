@@ -50,7 +50,7 @@
 
 📧 Email: **luisnavarr1999@gmail.com**  
 💼 LinkedIn: [linkedin.com/in/luis-navarrete-7222013a2](https://www.linkedin.com/in/luis-navarrete-7222013a2/)  
-🌐 Portfolio: https://luisnavarr1999.github.io/Me-Lu8/
+🌐 Portfolio: https://luisnavarr1999.github.io/Luisnavarr1999/
 
 ---
 
