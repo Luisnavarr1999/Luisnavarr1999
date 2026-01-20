@@ -1,9 +1,16 @@
 import './style.css'
 
 document.querySelector('#app').innerHTML = `
+  <div class="intro-screen" id="intro-screen" aria-hidden="true">
+    <div class="intro-content">
+      <p class="intro-greeting">¡Bienvenido!</p>
+      <h1 class="intro-title">Soy LU8</h1>
+      <p class="intro-subtitle">Gracias por visitar</p>
+    </div>
+  </div>
   <main class="container">
     <header class="card hero">
-      <h1>Hola, soy Lucho 👋</h1>
+      <h1>Hola, soy Luis👋</h1>
       <p class="subtitle">Estudiante de Ingeniería en Informática</p>
 
       <div class="links">
@@ -30,32 +37,20 @@ document.querySelector('#app').innerHTML = `
         Estoy aprendiendo Python, Django, JavaScript y sql.
       </p>
     </section>
-
-    <section class="card">
-      <h2>Tecnologías</h2>
-      <ul>
-        <li>Python</li>
-        <li>Django</li>
-        <li>HTML & CSS</li>
-        <li>JavaScript (Aprendiendo)</li>
-        <li>Slq</li>
-        <li>Mysql</li>
-        <li>sqlite</li>
-        <li>Git & GitHub</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Proyectos</h2>
-      <ul>
-        <li><strong>Vet Arce Manager</strong> — Sistema web veterinario</li>
-        <li><strong>Inventario API</strong> — API REST con Django (test para practicar)</li>
-      </ul>
-    </section>
-
-    <footer class="card">
-      <p>📫 Contacto: luisnavarr1999@gmail.com </p>
-    </footer>
-  </main>
 `
+const introScreen = document.querySelector('#intro-screen')
+
+if (introScreen) {
+  setTimeout(() => {
+    introScreen.classList.add('intro-screen--hide')
+  }, 2200)
+
+  introScreen.addEventListener(
+    'transitionend',
+    () => {
+      introScreen.remove()
+    },
+    { once: true },
+  )
+}
 
