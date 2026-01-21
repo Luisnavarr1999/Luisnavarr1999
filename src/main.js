@@ -13,7 +13,16 @@ document.querySelector('#app').innerHTML = `
 
   <div class="layout">
     <aside class="sidebar">
-      <div class="brand">LU8</div>
+      <!-- BRAND (erizo + LU8 centrados) -->
+      <div class="brand">
+        <img
+          class="brand-hedgehog"
+          src="${withBase('hedgehog/hedgehog_intro.png')}"
+          alt="Erizo"
+          loading="lazy"
+        />
+        <span class="brand-text">LU8</span>
+      </div>
 
       <nav class="nav">
         <a href="#home">inicio</a>
@@ -43,6 +52,12 @@ document.querySelector('#app').innerHTML = `
     <main class="content">
       <!-- HOME (hero centrado) -->
       <section class="hero-section" id="home" aria-labelledby="intro-title">
+
+        <!-- ERIZO (solo en HOME) -->
+        <button class="hedgehog" id="hedgehog" type="button" aria-label="Erizo">
+          <img id="hedgehogImg" src="${withBase('hedgehog/hedgehog_idle.png')}" alt="Erizo" />
+        </button>
+
         <div class="hero-card">
           <h1 id="intro-title">Hola, soy Luis <span aria-hidden="true">👋</span></h1>
           <p class="subtitle">Estudiante de Ingeniería en Informática</p>
@@ -139,9 +154,27 @@ const heroSection = document.querySelector('.hero-section')
 const navLinks = document.querySelectorAll('.nav a')
 const sections = document.querySelectorAll('.section-card')
 
+// Erizo refs
+const hedgehogBtn = document.getElementById('hedgehog')
+const hedgehogImg = document.getElementById('hedgehogImg')
+let hedgehogRunning = false
+
+function resetHedgehog() {
+  hedgehogRunning = false
+  hedgehogBtn.classList.remove('run')
+  hedgehogImg.src = withBase('hedgehog/hedgehog_idle.png')
+}
+
+function showHedgehogIfHome(hash) {
+  const isHome = !hash || hash === '#home'
+  hedgehogBtn.style.display = isHome ? 'block' : 'none'
+  if (!isHome) resetHedgehog()
+}
+
 function showHome() {
   heroSection.style.display = 'flex'
   sections.forEach((s) => s.classList.remove('is-active'))
+  showHedgehogIfHome('#home')
 }
 
 function showSection(id) {
@@ -149,6 +182,7 @@ function showSection(id) {
   sections.forEach((s) => s.classList.remove('is-active'))
   const target = document.querySelector(id)
   if (target) target.classList.add('is-active')
+  showHedgehogIfHome(id)
 }
 
 navLinks.forEach((link) => {
@@ -176,6 +210,21 @@ const initialHash = location.hash || '#home'
 if (initialHash === '#home') showHome()
 else showSection(initialHash)
 
+// ===== Erizo (click => gif + sale corriendo) =====
+hedgehogBtn.addEventListener('click', () => {
+  if (hedgehogRunning) return
+  hedgehogRunning = true
+
+  hedgehogImg.src = withBase('hedgehog/hedgehog_run.gif')
+
+  // Reiniciar animación si lo clickeas luego otra vez
+  hedgehogBtn.classList.remove('run')
+  void hedgehogBtn.offsetWidth
+  hedgehogBtn.classList.add('run')
+})
+
+hedgehogBtn.addEventListener('animationend', resetHedgehog)
+
 
 // ====== Proyectos (grid + modal) ======
 const projects = [
@@ -196,8 +245,7 @@ const projects = [
   {
     title: 'Test',
     desc: 'Tests de proyecto.',
-    longDesc:
-      'Servicio test.',
+    longDesc: 'Servicio test.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     cover: withBase('projects/jardin-cover.png'),
     images: [withBase('projects/jardin-1.png'), withBase('projects/jardin-2.png')],

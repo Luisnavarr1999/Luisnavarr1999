@@ -3,13 +3,9 @@
   color-scheme: dark;
 }
 
-*{
-  box-sizing: border-box;
-}
+*{ box-sizing: border-box; }
 
-html{
-  scroll-behavior: smooth;
-}
+html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
@@ -96,20 +92,35 @@ body{
 .nav{
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
 }
 
 .nav a{
+  width: 100%;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+
   text-decoration: none;
   color: #e7e9ee;
-  font-weight: 500;
-  text-transform: lowercase;
-  transition: color .25s ease;
+
+  border-radius: 12px;
+  transition: 
+    background .25s ease,
+    color .25s ease,
+    transform .2s ease;
 }
 
 .nav a:hover,
 .nav a:focus{
+  background: rgba(143,179,255,0.12);
   color: #8fb3ff;
+  transform: translateY(-1px);
 }
 
 /* ================= SOCIAL ================= */
@@ -153,7 +164,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* CENTRADO VERTICAL REAL */
+  justify-content: center;
   gap: 80px;
   padding-bottom: 80px;
 }
@@ -165,6 +176,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .hero-card{
@@ -209,8 +221,7 @@ body{
   padding: 48px 42px;
   text-align: center;
   box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-
-  display: none; /* ocultas por defecto */
+  display: none;
 }
 
 .section-card.is-active{
@@ -240,90 +251,65 @@ body{
   list-style: none;
 }
 
-.section-card li{
-  margin: 10px 0;
-}
+.section-card li{ margin: 10px 0; }
 
 /* ================= ANIMATIONS ================= */
 
 @keyframes fadeUp{
-  from{
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from{ opacity: 0; transform: translateY(20px); }
+  to{ opacity: 1; transform: translateY(0); }
 }
 
 @keyframes introFloat{
-  from{
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from{ opacity: 0; transform: translateY(20px); }
+  to{ opacity: 1; transform: translateY(0); }
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px){
-  .layout{
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
-
-  .sidebar{
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .social{
-    width: 100%;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 0;
-  }
+  .layout{ grid-template-columns: 1fr; padding: 20px; }
+  .sidebar{ flex-direction: row; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .social{ width: 100%; flex-direction: row; justify-content: flex-start; margin-top: 0; }
 }
 
 @media (max-width: 600px){
-  .nav{
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
+  .nav{ width: 100%; flex-direction: row; flex-wrap: wrap; gap: 12px; }
 }
 
 /* ================= PROJECTS GRID ================= */
 
-/* Contenedor de proyectos MÁS ancho (para que no se vea apretado) */
+/* ✅ MÁS GRANDE el “cuadro” de proyectos */
 .projects-section{
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;   /* antes 1200px */
+  padding: 64px 64px;  /* más aire interno */
 }
 
+/* Subtitle igual */
 .projects-section .projects-subtitle{
   margin: 0 0 22px;
   opacity: 0.85;
   font-size: clamp(1.05rem, 1.6vw, 1.2rem);
 }
 
-/* Grid más suelto */
+/* ✅ Grid más flexible (en pantallas grandes se ve mejor) */
 .projects-grid{
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-  margin-top: 32px;
+  gap: 36px;           /* un poco más de espacio */
+  margin-top: 36px;
 }
 
-/* Cards más grandes y premium */
+/* en pantallas muy grandes, si cabe, 4 columnas */
+@media (min-width: 1400px){
+  .projects-grid{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Cards */
 .project-card{
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
@@ -341,9 +327,9 @@ body{
   border-color: rgba(143,179,255,0.45);
 }
 
-/* Imagen más alta */
+/* ✅ Imagen un poco más alta */
 .project-media{
-  height: 200px;
+  height: 230px; /* antes 200 */
   background: rgba(0,0,0,0.25);
 }
 
@@ -355,13 +341,13 @@ body{
 }
 
 .project-info{
-  padding: 22px 22px 26px;
+  padding: 24px 24px 28px;
   text-align: left;
 }
 
 .project-title{
   margin: 0 0 10px;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 800;
 }
 
@@ -369,7 +355,7 @@ body{
   margin: 0 0 16px;
   opacity: 0.85;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 .tag-row{
@@ -389,22 +375,13 @@ body{
   color: #cfe0ff;
 }
 
-.tag-muted{
-  opacity: 0.8;
-}
+.tag-muted{ opacity: 0.8; }
 
 /* ================= MODAL ================= */
 
-.modal{
-  position: fixed;
-  inset: 0;
-  display: none;
-  z-index: 50;
-}
-
-.modal.is-open{
-  display: block;
-}
+/* ✅ Modal más grande */
+.modal{ position: fixed; inset: 0; display: none; z-index: 50; }
+.modal.is-open{ display: block; }
 
 .modal-backdrop{
   position: absolute;
@@ -415,8 +392,8 @@ body{
 
 .modal-card{
   position: relative;
-  width: min(980px, calc(100% - 32px));
-  margin: 24px auto;
+  width: min(1200px, calc(100% - 32px)); /* antes 980px */
+  margin: 28px auto;                    /* un poco más de margen */
   background: rgba(26,34,56,0.98);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 18px;
@@ -446,24 +423,26 @@ body{
 
 .modal-title{
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 800;
 }
 
+/* ✅ Más padding + gap */
 .modal-body{
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 18px;
-  padding: 18px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 26px;
+  padding: 26px;
 }
 
+/* ✅ Imagen modal más grande */
 .modal-media{
   position: relative;
   background: rgba(0,0,0,0.25);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 14px;
   overflow: hidden;
-  min-height: 320px;
+  min-height: 380px; /* antes 320 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -498,9 +477,7 @@ body{
 .carousel-btn.prev{ left: 10px; }
 .carousel-btn.next{ right: 10px; }
 
-.modal-content{
-  text-align: left;
-}
+.modal-content{ text-align: left; }
 
 .modal-section-title{
   margin: 0 0 10px;
@@ -513,11 +490,10 @@ body{
   margin: 0 0 18px;
   line-height: 1.7;
   opacity: 0.9;
+  font-size: 1.05rem;
 }
 
-.modal-actions{
-  margin-top: 18px;
-}
+.modal-actions{ margin-top: 18px; }
 
 .btn-primary{
   display: inline-flex;
@@ -539,20 +515,88 @@ body{
 }
 
 /* Responsive grid/modal */
-@media (max-width: 1000px){
-  .projects-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+@media (max-width: 1100px){
+  .projects-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 700px){
-  .projects-grid{
-    grid-template-columns: 1fr;
-  }
-  .modal-body{
-    grid-template-columns: 1fr;
-  }
-  .modal-media{
-    min-height: 240px;
-  }
+  .projects-grid{ grid-template-columns: 1fr; }
+  .modal-body{ grid-template-columns: 1fr; }
+  .modal-media{ min-height: 260px; }
+  .projects-section{ padding: 44px 22px; }
 }
+
+/* ================= ERIZO (HOME) ================= */
+
+.hedgehog{
+  position: fixed;
+  bottom: 70px;
+  left: 60%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.hedgehog img{
+  width: 240px;
+  height: auto;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.hedgehog.run{
+  animation: hedgehogRun 3.3s ease forwards;
+}
+
+@keyframes hedgehogRun{
+  from{ transform: translateX(-50%); }
+  to{ transform: translateX(140vw); }
+}
+
+/* ================= SIDEBAR BRAND WITH HEDGEHOG ================= */
+
+.brand-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.sidebar-hedgehog{
+  width: 56px;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+}
+
+.brand{
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+/* ===== BRAND con erizo ===== */
+
+.brand{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-hedgehog{
+  width: 94px;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.brand-text{
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
